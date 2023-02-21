@@ -4,7 +4,7 @@ b=1
 
 echo "The Fibonacci Series is "
 
-for (( i=0; i<N; i++ ))
+for ( ( i=0; i<N; i++ ) )
 do
 	echo -n "$a "
 	fn=$((a + b))
