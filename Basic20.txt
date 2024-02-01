@@ -1,0 +1,111 @@
+# 1. Echo Command
+echo "Hello, World!"
+
+# 2. Variables
+NAME="John"
+echo "My name is $NAME"
+
+# 3. Read Input
+echo "Enter your age:"
+read AGE
+echo "You are $AGE years old."
+
+# 4. Conditional Statements (if-else)
+if [ "$AGE" -ge 18 ]; then
+    echo "You are an adult."
+else
+    echo "You are a minor."
+fi
+
+# 5. For Loop
+for i in {1..5}; do
+    echo "Number $i"
+done
+
+# 6. While Loop
+COUNT=1
+while [ $COUNT -le 5 ]; do
+    echo "Iteration $COUNT"
+    ((COUNT++))
+done
+
+# 7. File Operations
+touch myfile.txt           # Create an empty file
+echo "Hello" > myfile.txt  # Write to a file
+cat myfile.txt             # Display file content
+
+# 8. Functions
+greet() {
+    echo "Hello, $1!"
+}
+
+greet "Alice"
+
+# 9. Command Substitution
+CURRENT_DATE=$(date +%Y-%m-%d)
+echo "Today is $CURRENT_DATE"
+
+# 10. Case Statement
+echo "Choose a fruit: apple, banana, orange"
+read FRUIT
+
+case $FRUIT in
+    apple)
+        echo "You chose an apple."
+        ;;
+    banana)
+        echo "You chose a banana."
+        ;;
+    orange)
+        echo "You chose an orange."
+        ;;
+    *)
+        echo "Invalid choice."
+        ;;
+esac
+
+# 11. Arrays
+COLORS=("Red" "Green" "Blue")
+echo "Colors: ${COLORS[@]}"
+
+# 12. Math Operations
+NUM1=10
+NUM2=5
+SUM=$((NUM1 + NUM2))
+echo "Sum: $SUM"
+
+# 13. String Manipulation
+STRING="Hello, World!"
+echo "Length of the string: ${#STRING}"
+echo "Substring: ${STRING:0:5}"
+
+# 14. Command Line Arguments
+echo "Script name: $0"
+echo "First argument: $1"
+echo "Second argument: $2"
+
+# 15. Environment Variables
+echo "Home directory: $HOME"
+echo "Current user: $USER"
+
+# 16. Redirecting Output
+ls -l > file_list.txt  # Redirect ls output to a file
+cat < file_list.txt    # Read content from a file
+
+# 17. Piping
+ps aux | grep "chrome"  # List all processes and filter for "chrome"
+
+# 18. Removing Files
+rm myfile.txt  # Remove a file
+
+# 19. Sleep
+echo "Sleeping for 3 seconds..."
+sleep 3
+echo "Awake!"
+
+# 20. Check if a Command Succeeded
+if command; then
+    echo "Command succeeded"
+else
+    echo "Command failed"
+fi
