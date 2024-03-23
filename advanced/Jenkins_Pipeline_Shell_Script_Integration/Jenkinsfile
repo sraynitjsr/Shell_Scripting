@@ -4,14 +4,32 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                //  git 'https://github.com/my_repository.git'
+                // git clone 'https://github.com/my_repository.git'
+            }
+        }
+        stage('Run Unit Tests') {
+            steps {
+                script {
+                    // Run Maven unit tests
+                    // sh 'mvn clean test'
+                }
             }
         }
         stage('Install Helm Chart') {
             steps {
                 script {
                     // Install my Helm chart here
-                    sh 'helm install my_helm_chart_name my_helm_chart_directory'
+                    // sh 'helm install my_helm_chart_name my_helm_chart_directory'
+                }
+            }
+        }
+        stage('Run SonarQube Analysis') {
+            steps {
+                script {
+                    // Run SonarQube analysis
+                    withSonarQubeEnv('SonarQube') {
+                        // sh 'mvn sonar:sonar'
+                    }
                 }
             }
         }
