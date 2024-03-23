@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Clone Repository') {
+            steps {
+                //  git 'https://github.com/my_repository.git'
+            }
+        }
+        stage('Install Helm Chart') {
+            steps {
+                script {
+                    // Install my Helm chart here
+                    sh 'helm install my_helm_chart_name my_helm_chart_directory'
+                }
+            }
+        }
+    }
+}
