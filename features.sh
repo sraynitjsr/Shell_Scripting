@@ -118,4 +118,45 @@ fi
 echo "20. Cleaning up..."
 rm output.txt
 
+# 21. Function with return value
+function add() {
+  local sum=$(( $1 + $2 ))
+  return $sum
+}
+add 3 4
+result=$?
+echo "21. The sum of 3 and 4 is $result"
+
+# 22. String manipulation
+message="Hello, World!"
+echo "22. String manipulation:"
+echo "   Length of message: ${#message}"
+echo "   Substring (0-4): ${message:0:5}"
+echo "   Replace 'World' with 'Shell': ${message/World/Shell}"
+
+# 23. File existence check
+filename="output.txt"
+echo "23. Checking if file $filename exists:"
+if [ -f "$filename" ]; then
+  echo "   File $filename exists."
+else
+  echo "   File $filename does not exist."
+fi
+
+# 24. Reading file line by line
+echo -e "First Line\nSecond Line\nThird Line" > sample.txt
+echo "24. Reading file line by line:"
+while IFS= read -r line; do
+  echo "   $line"
+done < sample.txt
+rm sample.txt
+
+# 25. Trap command
+echo "25. Using trap to handle script interruption:"
+trap "echo '   Script interrupted!' && exit 1" SIGINT
+echo "   Press Ctrl+C to test interruption."
+sleep 10
+trap - SIGINT
+echo "   Script execution completed without interruption."
+
 echo "   Script execution complete."
